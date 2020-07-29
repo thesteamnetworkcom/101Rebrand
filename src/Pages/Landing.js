@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
-import './Landing.css';
+import { withStyles } from '@material-ui/core/styles';
+import MyTheme from '../Components/Theme';
 import Header from '../Components/Header';
 import Home from '../Components/Home';
+
+const styles = MyTheme => ({
+	
+})
 
 function switchContent(content){
     switch(content){
@@ -22,4 +27,4 @@ const Landing = (props) => {
     )
 }
 
-export default Landing;
+export default withStyles(styles)(Landing);

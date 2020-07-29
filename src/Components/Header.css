@@ -31,3 +31,28 @@ img{
 #selections li.active{
     background-color:rgba(255,255,255,.7);
 }
+#mobile-menu{
+	display:none;
+}
+#mobile-menu path{
+	fill:darkgray;
+}
+#header-logo-wrapper{
+	flex-grow:0;
+}
+
+@media only screen and (max-width: 600px) {
+	img{
+		width:100px;
+	}
+	#selections{
+		display:none;
+	}
+	#mobile-menu{
+		display:inherit;
+		width:50px;
+	}
+	#header-logo-wrapper{
+		flex-grow:1;
+	}
+}
