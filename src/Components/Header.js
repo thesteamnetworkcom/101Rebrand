@@ -58,7 +58,7 @@ const Header = (props) => {
                 <li>About</li>
                 <li>Contact</li>
             </ul>
-			<img className={classes.mobileMenu} src={require("../Assets/menu.svg")} alt="menu"/>
+			<img className={classes.mobileMenu} onClick={()=>props.toggle()}src={require("../Assets/menu.svg")} alt="menu"/>
         </div>
     )
 }
