@@ -7,6 +7,12 @@ import Menu from '../Components/Menu';
 import About from '../Components/About';
 import Contact from '../Components/Contact';
 import Services from '../Components/Services';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 const styles = MyTheme => ({
 	
@@ -17,7 +23,7 @@ function switchContent(content, changePage){
         case 'Home':
             return <Home />;
 		case 'Menu':
-			return <Menu navigate={changePage}/>;
+			return <Menu/ >;
 		case 'About':
 			return <About />;
 		case 'Services':
@@ -29,37 +35,30 @@ function switchContent(content, changePage){
     }
 }
 
-const Landing = (props) => {
-    const [page, setPage] = useState({
-		previousPage:"Home",
-		page:"Home"
-	});
-	
-	const toggleMenu = () => {
-		if(page.page == "Menu"){
-			setPage({
-				previousPage:page.page,
-				page:page.previousPage
-			})
-		}else{
-			setPage({
-				previousPage:page.page,
-				page:"Menu"
-			})
-		}
-	}
-	const changePage = (loc) => {
-		setPage({
-			previousPage:page.page,
-			page:loc
-		})
-	}
-	
+const Landing = (props) => {	
     return (
-        <div id="main-wrapper">
-            <Header location={page.page} toggle={toggleMenu}/>
-            {switchContent(page.page, changePage)}
-        </div>
+		<Router>
+        	<div id="main-wrapper">
+            	<Header />
+				<Switch>
+					<Route path="/menu">
+						<Menu />
+					</Route>
+					<Route path="/contact">
+						<Contact />
+					</Route>
+					<Route path="/about">
+						<About />
+					</Route>
+					<Route path="/services">
+						<Services />
+					</Route>
+					<Route path="/">
+						<Home />
+					</Route>
+				</Switch>
+        	</div>
+		</Router>
     )
 }
 

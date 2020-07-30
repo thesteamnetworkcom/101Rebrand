@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import MyTheme from './Theme';
+import { Link } from "react-router-dom";
 
 const styles = MyTheme => ({
 	root:{
@@ -53,12 +54,14 @@ const Header = (props) => {
 				<img className={classes.logo} src={require("../Assets/101logo.png")} alt="logo"/>
 			</div>
             <ul className={classes.selections}>
-                <li className={`${props.location == 'Home' ? 'active' : '' }`}>Home</li>
+                <li>Home</li>
                 <li>Services</li>
                 <li>About</li>
                 <li>Contact</li>
             </ul>
-			<img className={classes.mobileMenu} onClick={()=>props.toggle()}src={require("../Assets/menu.svg")} alt="menu"/>
+			<Link to="/menu" className={classes.mobileMenu}>
+				<img className={classes.mobileMenu} src={require("../Assets/menu.svg")} alt="menu"/>
+			</Link>
         </div>
     )
 }

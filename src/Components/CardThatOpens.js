@@ -31,7 +31,7 @@ const CardThatOpens = (props) => {
 	const { classes } = props;
 	return(
 		<div onClick={()=>toggleDisp()}>
-			<Card>
+			<Card className={props.passClass}>
 				<CardContent>
 					<div  className={classes.wrapper}>
 						<img className={classes.image} src={props.image} />
